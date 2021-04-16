@@ -53,7 +53,23 @@ module.exports = {
         https: false, // 编译失败时刷新页面
         hot: true, // 开启热加载
         hotOnly: false,
-        proxy: null, // 设置代理
+        proxy: null,
+        proxy: {
+            // [process.env.VUE_APP_API]: {
+            //     target: "http://www.web-jshtml.cn/productapi/token",
+            //     changeOrigin: true,
+            //     pathRewrite: {
+            //         ['^' + process.env.VUE_APP_API]: ''
+            //     }
+            // }
+            '/devApi': {
+                target: 'http://www.web-jshtml.cn/productapi',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/devApi': ''
+                }
+            }
+        }, // 设置代理
         overlay: { // 全屏模式下是否显示脚本错误
             warnings: true,
             errors: true
